@@ -9,9 +9,9 @@ if [[ "$?" == 1 ]]; then
 fi
 
 # cd to hooks folder
-isInHooks=$(pwd | grep 'git_hooks')
+isInHooks=$(pwd | grep '.git_hooks')
 if [[ $isInHooks == '' ]]; then
-	cd git_hooks
+	cd .git_hooks
 fi
 
 printf '\n========== init .eslintrc ==========\n'
@@ -25,7 +25,7 @@ chmod a+x ./pre-push
 printf '\n\n========== ln hook ==========\n'
 cd ../.git/hooks/
 rm -f pre-commit pre-push post-merge commit-msg
-ln -sv ../../git_hooks/pre-commit .
-ln -sv ../../git_hooks/pre-push .
+ln -sv ../../.git_hooks/pre-commit .
+ln -sv ../../.git_hooks/pre-push .
 
 printf '\n\n如eslint和eslint-plugin-react未安装成功：\033[32m npm install -g eslint && npm install -g eslint-plugin-react\033[0m\n'
