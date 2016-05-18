@@ -5,7 +5,7 @@ Felint Config
 
 ### 安装依赖
 
-安装所依赖的npm包和gem包：
+安装所依赖的npm包和gem包：(_需要eslint2_)
 
 ```
 npm install -g eslint && npm install -g eslint-plugin-react
