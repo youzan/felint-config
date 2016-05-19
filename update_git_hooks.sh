@@ -31,6 +31,7 @@ chmod a+x ./pre-push
 chmod a+x ./commit-msg
 
 printf '\n\n========== ln hook ==========\n'
+mkdir ../.git/hooks/
 cd ../.git/hooks/
 rm -f pre-commit pre-push post-merge commit-msg
 ln -sv ../../.git_hooks/pre-commit .
