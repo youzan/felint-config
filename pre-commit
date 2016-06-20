@@ -36,20 +36,21 @@ if [[ "$JS_STAGED_FILES" != "" ]]; then
 fi
 
 
-# if [[ "$SCSS_STAGED_FILES" != "" ]]; then
-#   echo "\nValidating Scss:\n"
+if [[ "$SCSS_STAGED_FILES" != "" ]]; then
+  echo "\nValidating Scss:\n"
 
-#   scss-lint $SCSS_STAGED_FILES
+  # 只输出Error
+  scss-lint $SCSS_STAGED_FILES | grep '\[E\]'
 
-#   if [[ "$?" == 0 ]]; then
-#     echo "\033[32mSCSS-Lint Passed\033[0m"
-#   else
-#     echo "\033[41mSCSS-Lint Failed\033[0m"
-#     PASS=false
-#   fi
+  if [[ "$?" == 0 || "$?" == 1 ]]; then
+    echo "\033[32mSCSS-Lint Passed\033[0m"
+  else
+    echo "\033[41mSCSS-Lint Failed\033[0m"
+    PASS=false
+  fi
 
-#   echo "\nScss validation completed!\n"
-# fi
+  echo "\nScss validation completed!\n"
+fi
 
 if ! $PASS; then
   echo "\033[41mCOMMIT FAILED:\033[0m Your commit contains files that should pass ESLint and Scss-lint but do not. Please fix the ESLint and Scss-lint errors and try again.\n"
