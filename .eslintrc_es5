@@ -10,9 +10,12 @@
         "react"
     ],
 
-    parserOptions: {
+    "globals": {
+        "define": false
+    },
+
+    "parserOptions": {
         "ecmaVersion": 6,
-        "sourceType": "module",
         "ecmaFeatures": {
             "jsx": true,
             "modules": true,
@@ -40,8 +43,9 @@
             "experimentalObjectRestSpread": true
         }
     },
-    
+
     "rules": {
+        "no-var": 0,
         "comma-dangle": [2, "never"],
         "no-cond-assign": 0,
         "no-console": 0,
