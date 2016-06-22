@@ -43,7 +43,7 @@ if [[ "$?" == 1 ]]; then
 fi
 
 # Check eslint-plugin-react
-checkAndInstallPackage 'eslint-plugin-react' '@5.1.1"
+checkAndInstallPackage 'eslint-plugin-react' '@5.1.1'
 
 if [[ $esV == "6" ]]; then
   checkAndInstallPackage 'babel-eslint' '@6.0.4'
@@ -53,7 +53,7 @@ if [[ $esV == "6" ]]; then
 fi
 
 # cd to hooks folder
-cd ~/.git_hooks
+cd ./.git_hooks
 
 printf '\n========== init .eslintrc start ==========\n'
 if [[ $esV == "6" ]]; then
@@ -73,13 +73,13 @@ printf '\n========== init hook ==========\n'
 mkdir "${projectPath}/.git/hooks/"
 hooks="${projectPath}/.git/hooks/"
 rm -f "${hooks}/pre-commit" "${hooks}/pre-push" "${hooks}/commit-msg"
-cp ./pre-commit "$hooks"
-cp ./pre-push "$hooks"
-cp ./commit-msg "$hooks"
+ln -s ../../.git_hooks/pre-commit "$hooks"
+ln -s ../../.git_hooks/pre-push "$hooks"
+ln -s ../../.git_hooks/commit-msg "$hooks"
 printf '\n========== chmod hook ==========\n'
-chmod a+x "${hooks}/pre-commit"
-chmod a+x "${hooks}/pre-push"
-chmod a+x "${hooks}/commit-msg"
+chmod a+x "./pre-commit"
+chmod a+x "./pre-push"
+chmod a+x "./commit-msg"
 printf '\n========== chmod hook done ==========\n'
 
 printf '\n========== init hook done ==========\n'
