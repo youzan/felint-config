@@ -59,7 +59,9 @@ printf '\n========== init .eslintrc start ==========\n'
 if [[ $esV == "6" ]]; then
   # use es6 config
   cp ./.eslintrc_es6 "${projectPath}/.eslintrc"
-else
+fi
+
+if [[ $esV == "5" ]; then
   # use es5 config
   cp ./.eslintrc_es5 "${projectPath}/.eslintrc"
 fi
