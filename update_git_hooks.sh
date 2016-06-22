@@ -61,7 +61,7 @@ if [[ $esV == "6" ]]; then
   cp ./.eslintrc_es6 "${projectPath}/.eslintrc"
 fi
 
-if [[ $esV == "5" ]; then
+if [[ $esV == "5" ]]; then
   # use es5 config
   cp ./.eslintrc_es5 "${projectPath}/.eslintrc"
 fi
