@@ -3,7 +3,7 @@
   "parser": "babel-eslint",
   "rules": {
     "no-var": 2,
-    "semi": 0,
+    "semi": [1, "always", { "omitLastInOneLineBlock": true}],
     "max-len": 0,
     "react/prefer-stateless-function": 0,
     "comma-dangle": 0,
