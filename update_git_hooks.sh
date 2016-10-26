@@ -49,7 +49,7 @@ checkAndInstallPackage 'eslint-plugin-jsx-a11y' '@1.2.3'
 checkAndInstallPackage 'eslint-config-airbnb' '@9.0.1'
 
 # cd to hooks folder
-cd ./.git_hooks
+cd ./.felint
 
 printf '\n========== init .eslintignore start ==========\n'
 cp ./.eslintignore "$projectPath"
@@ -58,10 +58,10 @@ printf '\n========== init .eslintignore done ==========\n'
 printf '\n========== init hook ==========\n'
 mkdir "${projectPath}/.git/hooks/"
 hooks="${projectPath}/.git/hooks/"
-rm -f "${hooks}/pre-commit" "${hooks}/pre-push" "${hooks}/commit-msg"
-ln -s ../../.git_hooks/pre-commit "$hooks"
-ln -s ../../.git_hooks/pre-push "$hooks"
-ln -s ../../.git_hooks/commit-msg "$hooks"
+rm -f "${hooks}/pre-commit" "${hooks}/pre-push" "${hooks}/post-merge" "${hooks}/commit-msg"
+ln -s ../../.felint/pre-commit "$hooks"
+ln -s ../../.felint/pre-push "$hooks"
+ln -s ../../.felint/commit-msg "$hooks"
 printf '\n========== chmod hook ==========\n'
 chmod a+x "./pre-commit"
 chmod a+x "./pre-push"
