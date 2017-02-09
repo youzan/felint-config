@@ -76,9 +76,4 @@ printf '\n========== chmod hook done ==========\n'
 
 printf '\n========== init hook done ==========\n'
 
-
-
-printf '\n\n如eslint和eslint-plugin-react未安装成功：\033[32m npm install -g eslint && npm install -g eslint-plugin-react\033[0m'
-printf '\n\n如 scss_lint 未安装成功：\033[32m gem install scss_lint \033[0m\n'
-
 printf '\n========== ALL DONE, THANKS\n'
