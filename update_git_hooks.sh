@@ -27,7 +27,7 @@ checkAndInstallPackage()
   sh "$my_dir/checkPackage.sh" "$pn" "$v" "$packageList"
   result=$?
   if [[ $result == '1' ]]; then
-    printf "${RED}${pn}包版本错误，可能会导致felint问题，推荐使用${LGREEN}${v}版本${NC}"
+    printf "${RED}你已安装${pn}，如果出现问题，请安装${LGREEN}${v}版本尝试解决${NC}"
   fi
 
   if [[ $result == '2' ]]; then
