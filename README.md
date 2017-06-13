@@ -3,32 +3,20 @@ Felint Config
 
 ## 配置
 
-### 安装依赖
+### 配置规则文件
 
-安装所依赖的npm包和gem包：(_需要eslint2_)
+请在`rules`目录下加入需要的配置规则文件。
 
-```
-npm install -g eslint && npm install -g eslint-plugin-react
-gem install scss_lint
-```
+命名方式为`.eslintrc_type.json` `.stylelintrc_type.json`。
 
-### 校验配置
+### 配置git钩子
 
-代码检查配置请配置`.eslintrc`、`.eslintignore`和`.scss-lint.yml`三个文件，然后运行`update_git_hooks.sh`。
+增/删/修改hooks目录下的shell文件，然后修改`update_git_hooks`逻辑应用你自己的修改。
 
-详细规范配置
+### 配置依赖
 
- - [eslint](http://eslint.org/docs/rules/)
- - [scss](https://github.com/brigade/scss-lint/blob/master/lib/scss_lint/linter/README.md)
+修改config.js文件内的dependence.npm内容
 
-## 数据统计接口配置
+### 配置规则方案
 
-修改`pre-commit`和`commit-msg`钩子文件中`curl`对应行的接口请求地址，以及去掉注释。
-
-例如`commit-msg`：
-
-```c
-#!/bin/sh
-
-curl -G -s -o /dev/null "www.interface.com/commit/msg?user=$(git config user.name)" --data-urlencode "comments=$(cat $1)"
-```
+修改config.js文件内plan字段，key为方案名，一个方案可以对应不同的eslintrc和stylelintrc文件组合
