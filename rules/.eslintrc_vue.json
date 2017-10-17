@@ -1,12 +1,6 @@
 {
-  "parserOptions": {
-    "ecmaVersion": 6,
-    "ecmaFeatures": {
-      "experimentalObjectRestSpread": true,
-      "jsx": true
-    },
-    "sourceType": "module"
-  },
+  "root": true,
+  "parser": "babel-eslint",
 
   "env": {
     "es6": true,
