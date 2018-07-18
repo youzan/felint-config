@@ -1,5 +1,4 @@
 #!/bin/sh
-# curl -s -o /dev/null "www.qima-inc.com/commit/create?user=$(git config user.name)&comments=pre-commit"
 
 JS_STAGED_FILES=$(git diff --cached --name-only --diff-filter=ACM | grep -E "(\.vue|\.jsx?)$")
 SCSS_STAGED_FILES=$(git diff --cached --name-only --diff-filter=ACM | grep -E "(\.vue|\.p?css)$")
@@ -56,7 +55,6 @@ if ! $PASS; then
   exit 1
 else
   echo "\033[42mCOMMIT SUCCEEDED\033[0m\n"
-  curl -s -o /dev/null "www.qima-inc.com/commit/create?user=$(git config user.name)&comments=eslint" &
 fi
 
 exit $?
